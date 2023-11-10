@@ -10,4 +10,10 @@ function createTriviaQuestion(category, question, answer) {
     const p1 = document.createElement("p");
     const button = document.createElement("button");
     const p2 = document.createElement("p");
+
+    h2.textContent = category;
+    p1.textContent = question;
+    p1.setAttribute("class", "card");
+
+    button.textContent = "Show Answer";
 }
