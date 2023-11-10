@@ -1,9 +1,9 @@
 function displayError(error) {
-    const section = document.querySelector("section.error")
-    section.style.display = "block"
-    section.innerHTML = `
+    const main = document.querySelector("main");
+    main.style.display = "block"
+    main.innerHTML = `
     <p>Something went wrong!</p>
-    <p class="error-message">${error}</p>`
+    <p class="error-message">${error}</p>`;
 }
 
 function displayCard(singleQ){
