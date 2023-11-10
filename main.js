@@ -36,3 +36,15 @@ function createTriviaQuestion(category, question, answer) {
     const main = document.querySelector("main.centered");
     main.append(article);
 }
+
+const form = document.querySelector("form");
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    fetch(url)
+    .then((response) => response.json())
+    .then((data) => data.results.forEach((elt) => {
+        createTriviaQuestion(elt.category, elt.question, elt.correct_answer);
+    }))
+    .catch((error) => displayError(error));
+})
