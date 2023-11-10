@@ -1,31 +1,29 @@
-const category = document.querySelector("h2");
-const question = document.querySelector("p");
-const answer = document.querySelector("p.hidden");
-const answerButton = document.querySelector("#answer-button");
+const main = document.querySelector(".centered");
 const form = document.querySelector("form");
-
-
-answerButton.addEventListener("click", (event) => {
-    answer.classList.remove("hidden");
-});
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
+    
+    fetch("https://opentdb.com/api.php?amount=10")
+    .then((response) => response.json())
+    .then((data) => data.results.forEach((e) => createCard(e)))
+
 })
 
 
-function displayBox(param){
-    category.innerHTML = `${param.category}`;
-    question.innerHTML = `${param.question}`;
-    answer.textContent = `${param.correct_answer}`;
+function createCard(triviaQuestion){
+    
+    const { category, question, correct_answer } = triviaQuestion;
+    
+    const article = document.createElement("article");
+    article.classList.add("card");
+    
+    article.innerHTML = `
+    <h2>${category}</h2>
+    <p>${question}</p>
+    <button>Show Answer</button>
+    <p class="hidden">${correct_answer}</p>
+    `;
+    
+    main.append(article);
 }
-
-// fetch the api
-fetch("https://opentdb.com/api.php?amount=10&category=21&difficulty=easy")
-
-// transform the api request to a json file
-.then((response) => response.json())
-
-// 
-.then((data) => data.results.forEach((triviaQuestion) => displayBox(triviaQuestion)))
-
