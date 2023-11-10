@@ -16,4 +16,12 @@ function createTriviaQuestion(category, question, answer) {
     p1.setAttribute("class", "card");
 
     button.textContent = "Show Answer";
+
+    button.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const art = event.target.closest("article");
+        const p = art.querySelector(".hidden");
+        p.classList.remove("hidden");
+    })
 }
