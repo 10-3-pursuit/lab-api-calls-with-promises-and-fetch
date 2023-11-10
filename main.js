@@ -24,4 +24,15 @@ function createTriviaQuestion(category, question, answer) {
         const p = art.querySelector(".hidden");
         p.classList.remove("hidden");
     })
+
+    p2.setAttribute("class", "hidden");
+    p2.textContent = answer;
+
+    article.append(h2);
+    article.append(p1);
+    article.append(button);
+    article.append(p2);
+
+    const main = document.querySelector("main.centered");
+    main.append(article);
 }
