@@ -4,14 +4,14 @@ function displayQuestion(card) {
   
     const article = document.createElement('article')
     article.classList.add('card')
-    article.classList.add(`difficulty-${card.difficulty}`)
+    article.classList.add(`difficulty-${difficulty}`)
     
     article.innerHTML = `
-    <h2>${card.category}</h2>
-    <p>Difficulty: ${card.difficulty}</p>
-    <p>${card.question}</p>
+    <h2>${category}</h2>
+    <p>Difficulty: ${difficulty}</p>
+    <p>${question}</p>
     <button>Show Answer</button>
-    <p class="hidden">${card.correct_answer}</p>`
+    <p class="hidden">${correct_answer}</p>`
 
     const showAnswerButton = article.querySelector('button');
     showAnswerButton.addEventListener('click', () => {
@@ -22,18 +22,22 @@ function displayQuestion(card) {
     main.append(article)
 }
 
-
 const form = document.querySelector('form')
 
 form.addEventListener('submit', (event) => {
     event.preventDefault()
-    fetch("https://opentdb.com/api.php?amount=10")
+
+    const selectedCategory = '&category=' + event.target.categories.value
+
+    fetch(`https://opentdb.com/api.php?amount=10${selectedCategory}`)
       .then((response) => response.json())
       .then((data) => {
         data.results.forEach((question) => {
           displayQuestion(question);
         });
+        form.reset();
       })
       .catch((error) => console.log(error));
 });
+
 
