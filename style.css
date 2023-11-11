@@ -66,3 +66,36 @@ button:hover {
 .hidden {
   display: none;
 }
+
+
+.answers p {
+  margin: 0;
+  padding: 5px;
+  border: 1px solid lightgray;
+  cursor: pointer;
+}
+
+.answers p:hover {
+  background-color: lightgray;
+}
+
+.correct {
+  background-color: lightgreen;
+}
+
+.answers p.incorrect {
+  /* Their is no light red. i could use pink but thats not what i wanted.So red is fine */
+  background-color: red;
+}
+
+.card.easy {
+  border: 3px solid lightgreen;
+}
+
+.card.medium {
+  border: 3px solid yellow;
+}
+
+.card.hard {
+  border: 3px solid red;
+}
