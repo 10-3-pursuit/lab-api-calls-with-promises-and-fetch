@@ -10,11 +10,6 @@ form.addEventListener("submit", (event) => {
 
 })
 
-
-
-
-
-
 function createCard(triviaQuestion){
     
     const { category, question, correct_answer } = triviaQuestion;
@@ -25,17 +20,19 @@ function createCard(triviaQuestion){
     article.innerHTML = `
     <h2>${category}</h2>
     <p>${question}</p>
-    <button id="answer-button">Show Answer</button>
+    <button class="answer-button">Show Answer</button>
     <p class="hidden">${correct_answer}</p>
     `;
-    
+
+    const answerButtons = article.querySelector(".answer-button");
+    const answer = article.querySelector("p.hidden");
+
+    answerButtons.addEventListener("click", () => {
+        answer.classList.remove("hidden");
+      });
+
+
     main.append(article);
     
     
-    const answerButtons = document.querySelector("#answer-button");
-    const answer = document.querySelector("p.hidden");
-    
-    answerButtons.addEventListener("click", (event) => {
-        answer.classList.remove("hidden");
-    })
 }
