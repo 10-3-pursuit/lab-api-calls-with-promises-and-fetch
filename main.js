@@ -15,7 +15,6 @@ function createTriviaQuestion(category, question, answer, difficulty) {
     h2.textContent = category;
     p0.textContent = `Difficulty: ${difficulty}`;
     p1.textContent = question;
-    p1.setAttribute("class", "card");
     article.setAttribute("class", difficulty)
 
     button.textContent = "Show Answer";
