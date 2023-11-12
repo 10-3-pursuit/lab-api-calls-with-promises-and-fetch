@@ -37,7 +37,7 @@ function createTriviaQuestion(category, question, answer, difficulty) {
     article.append(p2);
 
     const main = document.querySelector("main.centered");
-    main.append(article);
+    main.prepend(article);
 }
 
 const form = document.querySelector("form");
