@@ -54,6 +54,7 @@ function displayCard(trivia){
         if(answer.classList.contains("hide")){
             answer.classList.replace("hide","shownAnswer")
             answer.selected = true
+            showAnswer.textContent = "Hide Answer"
             for(let choice of options){
                 if(choice.innerText !== correct_answer){
                     choice.style.display = "none"
@@ -64,6 +65,7 @@ function displayCard(trivia){
         }else{
             answer.classList.replace("shownAnswer","hide")
             answer.selected = false
+            showAnswer.textContent = "Show Answer"
             for(let choice of options){
                 if(choice.innerText !== correct_answer){
                     choice.style.display = "block"
