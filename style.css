@@ -43,6 +43,18 @@ header h1 span {
   width: 75%;
 }
 
+.card.easy {
+  border: 3px solid green;
+}
+
+.card.medium {
+  border: 3px solid yellow;
+}
+
+.card.hard {
+  border: 3px solid red;
+}
+
 button {
   border: 2px solid #5c946e;
   border-radius: 5px;
