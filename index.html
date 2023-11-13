@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trivia Questions</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
   </head>
   <body>
     <header>
@@ -13,6 +14,24 @@
     </header>
     <section class="centered">
       <form>
+        <label for="categories">
+          <select name="categories" id="categories">
+            <option value="" disabled selected>Select A CATEGORY</option>
+            <option value="9">General Knowledge</option>
+            <option value="17">Science & Nature</option>
+            <option value="27">Animals</option>
+            <option value="22">Geography</option>
+            <option value="10">Sports</option>
+            <option value="23">History</option>
+            <option value="15">Video Games</option>
+            <option value="12">Music</option>
+            <option value="14">Television</option>
+            <option value="10">Books</option>
+            <option value="25">Art</option>
+            <option value="31">Japanese Anime & Manga</option>
+            <option value="28">Vehicles</option>
+          </select>
+        </label>
         <button type="submit">Get New Questions</button>
       </form>
     </section>
