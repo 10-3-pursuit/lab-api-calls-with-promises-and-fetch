@@ -25,7 +25,7 @@ form.addEventListener("submit", (event) => {
     console.log(numUser)
 } )
 
-  fetch("https://opentdb.com/api.php?amount=10&category=12&difficulty=easy&type=boolean&encode=url3986")
+  fetch("https://opentdb.com/api.php?amount=10&category=12&difficulty=easy&type=boolean")
   .then((response) => response.json())
   .then((data) => data.results.forEach((user) => displayCard(user)))
   .catch((error) => displayError(error));
