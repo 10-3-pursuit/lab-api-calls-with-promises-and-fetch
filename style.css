@@ -63,6 +63,20 @@ button:hover {
   padding: 25px;
 }
 
+.easy-difficulty {
+ background-color: green;
+}
+
+.medium-difficulty {
+  background-color: yellow;
+
+}
+
+.hard-difficulty {
+background-color: red;
+}
+
+
 .hidden {
   display: none;
 }
