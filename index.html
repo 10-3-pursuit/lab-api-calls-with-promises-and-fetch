@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trivia Questions</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
   </head>
   <body>
+
     <header>
       <h1>Trivia Questions</h1>
     </header>
@@ -17,7 +19,47 @@
       </form>
     </section>
     <main class="centered">
-      <!-- Your `.card` elements should show up here. -->
+      <style>
+        .card {
+          border: 2px solid #ddd;
+          padding: 10px;
+          margin: 10px;
+        }
+    
+        .easy {
+          border-color: green;
+        }
+    
+        .medium {
+          border-color: yellow;
+        }
+    
+        .hard {
+          border-color: red;
+        }
+    
+        .hidden {
+          display: none;
+        }
+    
+        .correct {
+          background-color: #aaf;
+        }
+      </style>
     </main>
-  </body>
+    <body>
+
+  <form id="triviaForm">
+    <label for="category">Choose a category:</label>
+    <select id="category" name="category">
+      <option value="9">General Knowledge</option>
+      <option value="11">Film</option>
+    </select>
+    <button type="button" onclick="getTrivia()">Get Trivia</button>
+  </form>
+
+  <div id="triviaContainer"></div>
+
+
+</body>
 </html>
