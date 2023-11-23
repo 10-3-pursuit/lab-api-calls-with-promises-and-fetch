@@ -10,6 +10,13 @@
 
 // event listener must go inside of the function?
 // Function to display a card containing information from a book object
+function displayError() {
+  const main = document.querySelector("main");
+  main.style.display = "block";
+  main.innerHTML = `<p>Nah bruh something went wrong here!</p>
+  <p class="error">${error}</p>
+  `;
+}
 function displayCard(book) {
   const { category, question, correct_answer } = book;
 
@@ -46,18 +53,14 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   fetch(
-    "https://opentdb.com/api.php?amount=10&category=10&difficulty=easy&type=multiple"
+    "https://opentdb.com/api.php?amount=5&category=10&difficulty=easy&type=multiple"
   )
     .then((response) => response.json())
     .then((data) => {
       data.results.forEach((book) => displayCard(book));
     })
     .catch((error) => {
-      console.log(`Error fetching data`, error);
+      return displayError(error);
+      // console.log(`Error fetching data`, error);
     });
 });
-
-// function displayCard(triviaQuestion) {
-//   const { category, type, difficulty, question } = triviaQuestion;
-//   console.log(type);
-// }
