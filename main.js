@@ -10,13 +10,14 @@
 
 // event listener must go inside of the function?
 // Function to display a card containing information from a book object
-function displayError() {
+function displayError(error) {
   const main = document.querySelector("main");
   main.style.display = "block";
   main.innerHTML = `<p>Nah bruh something went wrong here!</p>
-  <p class="error">${error}</p>
+  <p class="error-message">${error}</p>
   `;
 }
+
 function displayCard(book) {
   const { category, question, correct_answer } = book;
 
@@ -38,13 +39,13 @@ function displayCard(book) {
   const button = card.querySelector(".show-answer");
   const showAnswer = card.querySelector(".hidden");
 
-  // Add click event listener to the button inside this specific card
+  // Add a click event listener to the button inside this specific card
   button.addEventListener("click", () => {
     showAnswer.classList.toggle("hidden");
   });
 
   // Append the card to the main container
-  main.appendChild(card);
+  main.append(card);
 }
 
 const form = document.querySelector("form");
@@ -53,7 +54,7 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   fetch(
-    "https://opentdb.com/api.php?amount=5&category=10&difficulty=easy&type=multiple"
+    "https://opentdb.com/api.php?amount=10&category=10&difficulty=easy&type=multiple"
   )
     .then((response) => response.json())
     .then((data) => {
@@ -61,6 +62,5 @@ form.addEventListener("submit", (event) => {
     })
     .catch((error) => {
       return displayError(error);
-      // console.log(`Error fetching data`, error);
     });
 });
